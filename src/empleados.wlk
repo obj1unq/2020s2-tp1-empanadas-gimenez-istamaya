@@ -15,37 +15,38 @@ object gimenez {
 
 object galvan {
 	
-	var sueldo = 0
+	var totalCobrado = 0
 	var sueldoFijo = 15000
 	
 	method sueldo(){
 		return sueldoFijo
 	}
-	method recibirSueldo() {
-		sueldo += sueldoFijo
-		gimenez.actualizarFondo(sueldoFijo)
-	}
 	method sueldo(cantidad){
 		sueldoFijo = cantidad
+	}
+	method recibirSueldo() {
+		totalCobrado += sueldoFijo
+		gimenez.actualizarFondo(sueldoFijo)
 	}
 }
 
 object baigorria {
 	
-	var sueldoTotal = 0
+	var totalCobrado = 0
 	var sueldo = 0
 	
 	method sueldo(){
 		return sueldo
 	}
-	
+	method vender(cantidad){
+		sueldo += cantidad * 15
+	}
 	method recibirSueldo(){
-		
-		sueldoTotal += sueldo
+		totalCobrado += sueldo
 		gimenez.actualizarFondo(sueldo)
 		sueldo = 0
 	}
-	method vender(cantidad){
-		sueldo += cantidad * 15
+	method totalCobrado(){
+		return totalCobrado
 	}
 }

@@ -15,7 +15,8 @@ object gimenez {
 
 object galvan {
 	
-	var totalCobrado = 0
+	var dinero = 0
+	var deuda = 0
 	var sueldoFijo = 15000
 	
 	method sueldo(){
@@ -25,9 +26,23 @@ object galvan {
 		sueldoFijo = cantidad
 	}
 	method recibirSueldo() {
-		totalCobrado += sueldoFijo
+		dinero += sueldoFijo
 		gimenez.actualizarFondo(sueldoFijo)
 	}
+	method gastar(cuanto){
+		if (dinero == 0){
+			deuda += cuanto
+		}
+		dinero = 0.max(dinero -cuanto)
+	}
+	
+	method deuda(){
+		return deuda
+	}
+	method dinero(){
+		return dinero
+	}
+	
 }
 
 object baigorria {
